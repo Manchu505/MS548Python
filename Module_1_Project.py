@@ -13,16 +13,38 @@ def saveFile():
        
         if original == "1":
             file = filedialog.asksaveasfile(defaultextension='.txt', filetypes=[("Text File", ".txt"),("Word", ".doc"), ("All files", ".*"),])
-            file.write(result["text"])
-            file.close
+            try:
+                file.write(result["text"])
+                #file.close
+            except:
+                print("\nSomething went wrong!")
+                #savefile()
  
         else:
             file = filedialog.asksaveasfile(defaultextension='.txt', filetypes=[("Text File", ".txt"),("Word", ".doc"), ("All files", ".*"),])
-            file.write(spellCorrect)
-            file.close
+            try:
+                file.write(spellCorrect)
+                #file.close
+            except:
+                print("\nSomething went wrong!")
+                #savefile()
     else:
         exit
 
+
+def saveFileNoSpell():
+    savefile = input("\nWould you like to save (Y/n): ").upper()
+
+    if savefile == "Y":
+        file = filedialog.asksaveasfile(defaultextension='.txt', filetypes=[("Text File", ".txt"), ("Word", ".doc"), ("All files", ".*"), ])
+        try:
+            file.write(result["text"])
+            #file.close
+        except:
+           print("\nSomething went wrong!")
+           #saveFileNoSpell()
+    else:
+        exit
 # Greeting on Open
 now = datetime.datetime.now()
 hour = now.hour
@@ -34,7 +56,7 @@ elif hour < 18:
 else:
     greeting = "Good evening"
 
-print("{}!".format(greeting))
+print("\n{}!".format(greeting))
 
 print("\nWhat would you like to do today? \n[1] Open an audio File: \n[2] Open a text file:\n[3] Exit: ")
 selection = input("Please make your selection: ")
@@ -55,7 +77,7 @@ if selection == "1":
         print(spellCorrect)
         saveFile()
     else:
-        saveFile()
+        saveFileNoSpell()
 
 elif selection == "2":
     textpath = filedialog.askopenfilename(title="Select Text File", filetypes= (("Text File", ["*.txt", "*.doc", "*.docx"]),("All Files", "*.*")))
@@ -76,15 +98,16 @@ elif selection == "2":
         textSave = input("\nWould you like to save the new text? (Y/n): ").upper()
         if textSave == "Y":
             newfile = filedialog.asksaveasfile(defaultextension='.txt', filetypes=[("Text File", ".txt"),("Word", ".doc"), ("All files", ".*"),])
-            newfile.write(spellText)
-            newfile.close
-        #saveFile()
+            try:
+                newfile.write(spellText)
+                newfile.close
+            except:
+                print("\nSomething went wrong!")
+                #exit()
     else:
         exit 
-        #saveFile()
-
 else:
-    exit    
+    exit
 
 
 
