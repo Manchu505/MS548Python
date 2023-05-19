@@ -86,29 +86,3 @@ while True:
             play(audio)
     except Exception as e:
         print("An error has occurred: {}".format(e))
-
-# try:
-    #     message = input("User: ")
-    #     if message.lower() == "exit":
-    #         print("Goodbye!")
-    #         exit()
-    #     else:
-    #         messages.append({"role": "user", "content": message})
-    #         chat = openai.ChatCompletion.create(
-    #             model="gpt-3.5-turbo",
-    #             messages=messages,
-    #             temperature=0.5,
-    #             max_tokens=100,
-    #         )
-    #     reply = chat.choices[0].message.content
-    #     response["choice"] [0] ["message"] ["content"]
-        # messages.append({"role": "assistant", "content": reply})
-        # print("\nChatBot : ---------------------------------------------\n" + reply + "\n")
-        # audio = generate(
-        #     text=reply,
-        #     voice="Domi",
-        #     model="eleven_monolingual_v1"
-        # )
-        # play(audio)
-    # except Exception as e:
-    #     print("An error has occurred: {}".format(e))
