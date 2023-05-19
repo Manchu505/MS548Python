@@ -68,7 +68,7 @@ while True:
                 model="gpt-3.5-turbo",
                 messages=messages,
                 temperature=0.5,
-                max_tokens=100,
+                max_tokens=500,
             )
             reply = chat.choices[0].message.content
             # response["choice"] [0] ["message"] ["content"]
